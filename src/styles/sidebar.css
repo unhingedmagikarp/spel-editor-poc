@@ -1,0 +1,154 @@
+/* ---- sidebar --------------------------------------------------------- */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  padding-right: 6px;
+  animation: rise 500ms ease both;
+}
+
+.fields {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fields .fields {
+  margin-left: 9px;
+  padding-left: 9px;
+  border-left: 1px dashed var(--rule);
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+}
+
+.disclosure,
+.disclosure-spacer {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+.disclosure {
+  position: relative;
+  border-radius: 3px;
+}
+
+.disclosure::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 5px;
+  height: 5px;
+  border-right: 1.5px solid var(--ink-2);
+  border-bottom: 1.5px solid var(--ink-2);
+  transform: rotate(-45deg);
+  transition: transform 120ms ease;
+}
+
+.disclosure.is-open::before {
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.field-name {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--tok-property);
+  padding: 2px 6px;
+  margin-left: -6px;
+  border-radius: 5px;
+  transition: background 100ms ease;
+}
+
+.field-name:hover {
+  background: var(--expr-bg-active);
+}
+
+.field-type {
+  min-width: 0;
+  color: var(--ink-3);
+  font-size: 11.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.field-note {
+  margin: 0 0 2px 20px;
+  font-size: 11px;
+  color: var(--ink-3);
+  font-style: italic;
+}
+
+.functions,
+.patterns {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.functions button,
+.patterns button {
+  display: grid;
+  width: 100%;
+  gap: 2px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background 100ms ease, border-color 100ms ease;
+}
+
+.functions button:hover,
+.patterns button:hover {
+  background: var(--card);
+  border-color: var(--rule);
+}
+
+.functions code {
+  font-size: 12.5px;
+  color: var(--tok-variable);
+  font-weight: 500;
+}
+
+.functions span:not(.pill) {
+  font-size: 11.5px;
+  color: var(--ink-3);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.functions .pill {
+  justify-self: start;
+  margin-top: 3px;
+}
+
+.patterns button {
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+}
+
+.patterns span {
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+
+.patterns code {
+  font-size: 11.5px;
+  color: var(--expr);
+}
+

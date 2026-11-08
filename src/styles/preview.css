@@ -1,0 +1,206 @@
+/* ---- preview --------------------------------------------------------- */
+
+.preview-head,
+.breakdown-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.toggle input {
+  accent-color: var(--expr);
+}
+
+.samples {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.sample {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'dot name' 'desc desc';
+  align-items: center;
+  gap: 2px 7px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.sample:hover {
+  background: var(--card);
+}
+
+.sample.is-active {
+  background: var(--card);
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.sample .dot {
+  grid-area: dot;
+}
+
+.sample-name {
+  grid-area: name;
+  font-weight: 600;
+  font-size: 13.5px;
+}
+
+.sample-desc {
+  grid-area: desc;
+  font-size: 11px;
+  color: var(--ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.samples-warning {
+  margin: -2px 0 10px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: var(--error-bg);
+  color: var(--error);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.mail {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  position: relative;
+}
+
+.mail::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: repeating-linear-gradient(-45deg, var(--expr) 0 10px, #c9a227 10px 20px, var(--card) 20px 30px);
+  opacity: 0.85;
+}
+
+.mail-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 22px 0;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.mail-from {
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.mail-subject {
+  padding: 6px 22px 14px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.2;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.mail-body {
+  padding: 18px 22px 22px;
+  font-size: 15.5px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  min-height: 120px;
+}
+
+.mail-empty {
+  color: var(--ink-3);
+  font-style: italic;
+}
+
+.dyn {
+  background: var(--expr-bg);
+  box-shadow: inset 0 -1.5px 0 var(--expr);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 100ms ease;
+}
+
+.dyn:hover {
+  background: var(--expr-bg-active);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: 600 11px var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1px 8px 1px 6px;
+  margin: 0 1px;
+  border-radius: 5px;
+  vertical-align: 1px;
+}
+
+.chip::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.chip-error,
+.chip-invalid {
+  color: var(--error);
+  background: var(--error-bg);
+  border: 1px dashed var(--error);
+}
+
+.chip-unsupported {
+  color: #8a5810;
+  background: var(--warn-bg);
+  border: 1px dashed var(--warn);
+}
+
+.mail-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 22px;
+  font-size: 12.5px;
+  border-top: 1px solid var(--rule-soft);
+  background: var(--paper);
+  color: var(--ink-2);
+}
+
+.mail-status > span:nth-child(2) {
+  flex: 1;
+}
+
+.mail-status-failed {
+  background: var(--error-bg);
+  color: var(--error);
+}
+
+.mail-status-ok {
+  color: var(--ok);
+}
+
